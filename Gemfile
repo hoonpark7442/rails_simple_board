@@ -34,10 +34,21 @@ gem 'mysql2'
 # dotenv
 gem 'dotenv-rails', groups: [:development, :test]
 
+# bluma
+gem 'bulma-rails', '~> 0.8.0'
+
+# simple form
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
+
+# devise
+gem 'devise', '~> 4.7', '>= 4.7.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # better-errors
+  gem "better_errors"
 end
 
 group :development do
