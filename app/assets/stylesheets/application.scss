@@ -30,3 +30,19 @@
 .notification:not(:last-child) {
 	margin-bottom: 0;
 }
+
+.pagination2 {
+    font-size: 1rem;
+    margin: -0.25rem;
+}
+
+.pagination-list2 {
+    flex-wrap: wrap;
+}
+
+.pagination2, .pagination-list2 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

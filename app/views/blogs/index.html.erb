@@ -1,27 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
-
-<table>
+<% var = @seq %>
+<table class="table">
   <thead>
     <tr>
-      <th>Post</th>
-      <th colspan="3"></th>
+      <th>No.</th>
+      <th>Title</th>
+      <th>User</th>
+      <th>Comments</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.post %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= var %></td>
+        <td><%= link_to blog.title, blog %></td>
+        <td><%= blog.user.name %></td>
+        <td>
+          <span class="tag is-rounded"><%= blog.comments.count %> comments</span>
+        </td>
+        <td>
+          <% if can? :update, blog %>
+            <%= link_to 'Edit', edit_blog_path(blog) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, blog %>
+            <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
+      
+      <% var = var+1 %>
+
     <% end %>
   </tbody>
+  
 </table>
 
 <br>
-
-<%= link_to 'New Blog', new_blog_path %>
+<%= paginate @blogs %>

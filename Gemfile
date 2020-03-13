@@ -43,6 +43,24 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 # devise
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
+# google OAuth
+gem 'omniauth-google-oauth2'
+
+# cancancan
+gem 'cancancan', '~> 3.0', '>= 3.0.2'
+
+# kaminari
+gem 'kaminari'
+
+# sequenced
+gem 'sequenced'
+
+# fog-google
+gem 'fog-google', '~> 1.9', '>= 1.9.1'
+
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+
+gem 'carrierwave', '~> 2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

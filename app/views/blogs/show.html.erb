@@ -1,9 +1,43 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Post:</strong>
-  <%= @blog.post %>
-</p>
+<section class="section">
+	<div class="container">
+		<nav class="level">
+		  <!-- Left side -->
+		  <div class="level-left">
+		    <p class="level-item">
+		        <strong><%= @blog.title %></strong>
+		    </p>
+		  </div>
+		  <!-- Right side -->
+		  <div class="level-right">
+		  	<p class="level-item">
+		    	<% if can? :update, @blog %>
+				 <%= link_to 'Edit', edit_blog_path(@blog), class:"button" %>
+				<% end %>
+		  	</p>
+		  	<p class="level-item">
+		  		<% if can? :destroy, @blog %>
+		            <%= link_to 'Delete', blog_path(@blog), method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-danger" %>
+		        <% end %>
+			</p>
+		  </div>
+		</nav>
+		<hr/>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+		<div class="content">
+			<%= @blog.post %>
+		</div>
+	</div>
+</section>
+
+<section class="section comments">
+    <div class="container">
+        <h2 class="subtitle is-5"><strong><%= @blog.comments.count %></strong> Comments</h2>
+        <%= render @blog.comments %>
+        <div class="comment-form">
+            <hr />
+            <h3 class="subtitle is-3">Leave a reply</h3>
+             <%= render 'comments/form' %>
+        </div>
+    </div>
+</section>
