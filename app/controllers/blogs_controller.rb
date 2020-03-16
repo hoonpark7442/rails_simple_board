@@ -11,8 +11,18 @@ class BlogsController < ApplicationController
     @blogs = Blog.page params[:page]
     
     
-    sql2 = ActiveRecord::Base.connection
-    @seq = sql2.select_value('select current_value from sequence')
+    
+
+    total_pages = (Blog.page().total_pages).to_i
+    current_page = (params[:page]).to_i
+
+    if current_page == 0
+      @seq = (total_pages * current_page)+1
+    else
+      current_page = current_page - 1
+      @seq = (total_pages * current_page)+1
+    end
+     
     
   end
 
@@ -23,7 +33,6 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
-    @blog = current_user.blogs.build
   end
 
   # GET /blogs/1/edit
