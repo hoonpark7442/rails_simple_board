@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+ 
 
   # GET /blogs
   # GET /blogs.json
@@ -43,6 +44,9 @@ class BlogsController < ApplicationController
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
+
+    
+
   end
 
   # PATCH/PUT /blogs/1
@@ -79,6 +83,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :post, :user_shot)
+      params.require(:blog).permit(:title, :post, :shot)
     end
 end

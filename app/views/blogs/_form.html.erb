@@ -2,6 +2,8 @@
 
 <div class="section">
 <%= simple_form_for @blog do |f| %>
+
+
   <div class="field">
     <div class="control">
       <%= f.input :title, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
@@ -13,6 +15,13 @@
       <%= f.input :post, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
     </div>
   </div>
+
+  <div class="field">
+    <div class="control">
+    <%= f.input :shot, label: 'click to upload', input_html: { class: "file-input", type: "file" }, label_html: { class: "file-label" } %>
+    </div>
+  </div>
+
   <%= f.button :submit, 'Create new post', class: "button is-primary" %>
 <% end %>
 </div>

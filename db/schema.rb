@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_015717) do
+ActiveRecord::Schema.define(version: 2020_03_13_020057) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "post"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_015717) do
     t.integer "user_id"
     t.string "title"
     t.integer "seq_id"
+    t.string "shot"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
